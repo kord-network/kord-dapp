@@ -1,0 +1,95 @@
+{
+  "name": "kord-dapp",
+  "version": "1.0.0",
+  "description": "Decentralised application for managing and viewing KORD agents' representation in the KORD network.",
+  "directories": {
+    "doc": "doc"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix \"app/**/*.js\"",
+      "prettier --write --no-semi --single-quote --trailing-comma=es5",
+      "git add"
+    ]
+  },
+  "pre-commit": {
+    "run": [
+      "lint:staged"
+    ],
+    "silent": true
+  },
+  "scripts": {
+    "lint:staged": "lint-staged",
+    "build": "webpack --config config/webpack.config.production.js --progress",
+    "deploy": "npm run build && git push flynn HEAD:master",
+    "start": "webpack-dev-server --config ./config/webpack.config.development.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meta-network/kord-dapp.git"
+  },
+  "keywords": [
+    "kord",
+    "dapp"
+  ],
+  "author": "JAAK Music Ltd. (https://jaak.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meta-network/kord-dapp/issues"
+  },
+  "homepage": "https://github.com/meta-network/kord-dapp#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "copy-webpack-plugin": "^4.4.1",
+    "eslint": "^4.18.1",
+    "eslint-config-jaak": "^1.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^1.1.8",
+    "html-webpack-plugin": "^2.30.1",
+    "lint-staged": "^7.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "@meta.js/shared": "^1.0.0-beta.1",
+    "babel-polyfill": "^6.26.0",
+    "ethereumjs-util": "^5.1.4",
+    "ethereumjs-wallet": "^0.6.0",
+    "farce": "^0.2.5",
+    "found": "^0.3.8",
+    "graphql-request": "^1.4.1",
+    "idb-keyval": "^2.3.0",
+    "immutable": "^3.8.2",
+    "jaak-primitives": "^1.0.0-beta",
+    "meta.js": "^1.0.0-beta.1",
+    "polished": "^1.9.2",
+    "prop-types": "^15.6.0",
+    "query-string": "^5.1.0",
+    "randomstring": "^1.1.5",
+    "raven-js": "^3.22.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-modal": "^3.3.1",
+    "react-redux": "^5.0.7",
+    "react-responsive": "^4.0.4",
+    "react-transition-group": "^2.2.1",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-immutablejs": "0.0.8",
+    "redux-logger": "^3.0.6",
+    "redux-pack": "^0.1.5",
+    "reselect": "^3.0.1",
+    "styled-components": "^3.1.6",
+    "swarm-js": "^0.1.37"
+  }
+}
