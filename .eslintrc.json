@@ -1,0 +1,7 @@
+{
+  "extends": "jaak",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  }
+}
