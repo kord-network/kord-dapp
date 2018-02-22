@@ -14,6 +14,7 @@ const GLOBALS = {
   'process.env': {
     APP_URL: JSON.stringify(APP_URL),
     BASE_NAME: JSON.stringify(`/${DIRECTORY}/`),
+    CLAIM_SERVICE_HOST: JSON.stringify(`${HOST}/claims`),
     KORD_NETWORK_GRAPHQL_ENDPOINT: JSON.stringify(graphql.endpoints.production),
     NODE_ENV: JSON.stringify('production'),
     SENTRY_DATA_SOURCE_NAME: JSON.stringify(
