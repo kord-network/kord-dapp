@@ -1,0 +1,24 @@
+{
+  "identity-providers": {
+  	"ddex": {
+  		"graph-uri": "ddex",
+  		"endpoint": "/ddex"
+  	},
+  	"facebook": {
+  		"graph-uri": "facebook",
+  		"endpoint": "/facebook"
+  	},
+  	"ppl": {
+  		"graph-uri": "ppl",
+  		"endpoint": "/ppl"
+  	},
+  	"spotify": {
+  		"graph-uri": "spotify",
+  		"endpoint": "/spotify"
+  	},
+  	"twitter": {
+  		"graph-uri": "twitter",
+  		"endpoint": "/twitter"
+  	}
+  }
+}
