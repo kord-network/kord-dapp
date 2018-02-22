@@ -15,8 +15,19 @@ const getAll = state => state.get(name)
  *
  *	@returns {Object} Keyed by market type
  */
-const getAllMarkets = createSelector(getAll, state => state.get('markets'))
+const getMarkets = createSelector(getAll, state => state.get('markets'))
+
+/**
+ * Select the Identity Providers
+ *
+ * @returns {Object} Keyed by service provider name
+ */
+const getIdentityProviders = createSelector(
+  getMarkets,
+  markets => markets && markets.get('IdentityProviders')
+)
 
 export default {
-  markets: getAllMarkets,
+  markets: getMarkets,
+  identityProviders: getIdentityProviders,
 }
