@@ -1,3 +1,4 @@
+import { BASE_NAME } from 'core/constants'
 /**
  *
  * Get all the marketplaces from KORD network
@@ -7,4 +8,5 @@
  *
  *	@returns {Object} Keyed by market type
  */
-export const getMarketPlaces = () => JSON.parse(JSON.stringify(marketplaceData))
+export const getMarketPlaces = () =>
+  fetch(`${BASE_NAME}static-api/marketplace.json`).then(res => res.json())

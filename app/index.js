@@ -5,6 +5,9 @@ import Root from 'core/containers/Root'
 import { Sentry } from 'core/services'
 import { isDevelopment } from 'core/util'
 
+// STATIC DATA FILES
+import './data'
+
 import 'core/style/global'
 
 const rootEl = document.getElementById('Root')

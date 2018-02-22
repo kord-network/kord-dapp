@@ -10,7 +10,5 @@ import * as actions from './actionTypes'
  */
 export const getAllMarketplaces = () => ({
   type: actions.GET_ALL_MARKETPLACES,
-  payload: {
-    markets: MarketPlace.getMarketPlaces(),
-  },
+  promise: MarketPlace.getMarketPlaces().then(markets => markets),
 })

@@ -31,7 +31,6 @@ const PATHS = {
   dist: path.join(__dirname, '../public'),
   img: path.join(__dirname, '../static/img'),
   static: path.join(__dirname, '../static'),
-  data: path.join(__dirname, '../data'),
 }
 
 module.exports = {
