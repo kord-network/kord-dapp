@@ -1,4 +1,4 @@
-import KordNetwork from 'core/services'
+import { KordNetwork } from 'core/services'
 
 /**
  * Create a new KORD Identity and Claims Graph
