@@ -20,7 +20,7 @@ const getMarkets = createSelector(getAll, state => state.get('markets'))
 /**
  * Select the Identity Providers
  *
- * @returns {Object} Keyed by service provider name
+ * @return {Object} Keyed by service provider name
  */
 const getIdentityProviders = createSelector(
   getMarkets,

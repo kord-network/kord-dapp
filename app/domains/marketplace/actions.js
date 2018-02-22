@@ -5,9 +5,11 @@ import * as actions from './actionTypes'
 /**
  * Get the available marketplaces from KORD
  *
- * @returns {Object}
+ * @return {Object}
  */
 export const getAllMarketplaces = () => ({
   type: actions.GET_ALL_MARKETPLACES,
-  promise: Marketplace.getMarketPlaces().then(markets => markets),
+  promise: Marketplace.getMarketPlaces().then(markets => ({
+    markets,
+  })),
 })
