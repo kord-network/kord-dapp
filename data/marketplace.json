@@ -1,0 +1,20 @@
+{
+  "IdentityProviders": {
+  	"ddex": {
+  		"graphUriPath": "ddex",
+  		"endpoint": "/ddex"
+  	},
+  	"facebook": {
+  		"graphUriPath": "facebook",
+  		"endpoint": "/facebook"
+  	},
+  	"ppl": {
+  		"graphUriPath": "ppl",
+  		"endpoint": "/ppl"
+  	},
+  	"spotify": {
+  		"graphUriPath": "spotify",
+  		"endpoint": "/spotify"
+  	}
+  }
+}
