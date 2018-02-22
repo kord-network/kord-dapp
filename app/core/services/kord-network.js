@@ -23,7 +23,5 @@ const KordNetwork = new GraphQLClient(KORD_NETWORK_GRAPHQL_ENDPOINT, {
  * @param  {Object} variables GraphQL query variables
  * @return {Object}           Response data
  */
-const metaNetworkRequest = (query, variables) =>
+export const makeRequest = (query, variables) =>
   KordNetwork.request(query, variables)
-
-export default metaNetworkRequest
