@@ -1,4 +1,4 @@
-// import { createSelector } from 'reselect'
+import { createSelector } from 'reselect'
 
 import { name } from './constants'
 
@@ -10,6 +10,13 @@ import { name } from './constants'
  */
 const getAll = state => state.get(name)
 
+/**
+ * Select the markets from store
+ *
+ *	@returns {Object} Keyed by market type
+ */
+const getAllMarkets = createSelector(getAll, state => state.get('markets'))
+
 export default {
-  marketplace: getAll,
+  markets: getAllMarkets,
 }
