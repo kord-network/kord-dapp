@@ -4,7 +4,9 @@ import { createReducer } from 'redux-immutablejs'
 
 import * as actions from './actionTypes'
 
-export const initialState = Immutable.fromJS({})
+export const initialState = Immutable.fromJS({
+  markets: {},
+})
 
 export default createReducer(initialState, {
   [actions.GET_ALL_MARKETPLACES]: (state, action) =>
