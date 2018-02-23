@@ -15,7 +15,7 @@ const SessionMiddleware = ({ dispatch }) => next => action => {
     dispatch(ClaimsActions.readClaimsByGraph(action.payload.graph))
 
     // fetch marketplaces from KORD network
-    dispatch(MarketActions.getAllMarketplaces())
+    dispatch(MarketActions.getMarketplaces())
 
     // redirect to Home page
     dispatch(farce.push(routes.home.path))
