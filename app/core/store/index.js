@@ -51,9 +51,15 @@ export const configureStore = (state = persistState) => {
   store.dispatch(FarceActions.init())
 
   // store state on change
-  // store.subscribe(() => {
-  //   WebStorage.setSessionItem(STATE_KEY, {})
-  // })
+  store.subscribe(() => {
+    WebStorage.setSessionItem(STATE_KEY, {
+      claims: store.getState().get('claims'),
+      identity: store.getState().get('identity'),
+      marketplace: store.getState().get('marketplace'),
+      profile: store.getState().get('profile'),
+      session: store.getState().get('session'),
+    })
+  })
 
   return store
 }
