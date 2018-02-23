@@ -11,23 +11,16 @@ import { name } from './constants'
 const getAll = state => state.get(name)
 
 /**
- * Select the markets from store
- *
- *	@returns {Object} Keyed by market type
- */
-const getMarkets = createSelector(getAll, state => state.get('markets'))
-
-/**
  * Select the Identity Providers
  *
- * @return {Object} Keyed by service provider name
+ * @param  {Object} state Redux store
+ * @return {Object} 			Keyed by service provider name
  */
-const getIdentityProviders = createSelector(
-  getMarkets,
-  markets => markets && markets.get('IdentityProviders')
+const getIdentityProviders = createSelector(getAll, state =>
+  state.get('IdentityProviders')
 )
 
 export default {
-  markets: getMarkets,
+  markets: getAll,
   identityProviders: getIdentityProviders,
 }
