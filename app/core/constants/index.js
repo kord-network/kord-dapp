@@ -1,7 +1,3 @@
-import MARKETPLACE from './marketplace'
-
-export { MARKETPLACE }
-
 export const {
   APP_URL,
   BASE_NAME,
