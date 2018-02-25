@@ -7,7 +7,7 @@ import * as actions from './actionTypes'
 export const initialState = Immutable.fromJS({})
 
 export default createReducer(initialState, {
-  [actions.GET_ALL_MARKETPLACES]: (state, action) =>
+  [actions.GET_MARKETPLACES]: (state, action) =>
     handle(state, action, {
       success: prevState => prevState.merge(action.payload),
     }),
