@@ -7,7 +7,7 @@ import * as actions from './actionTypes'
  *
  * @return {Object}
  */
-export const getAllMarketplaces = () => ({
-  type: actions.GET_ALL_MARKETPLACES,
+export const getMarketplaces = () => ({
+  type: actions.GET_MARKETPLACES,
   promise: Marketplace.getMarketPlaces().then(markets => markets),
 })
