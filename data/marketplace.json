@@ -8,10 +8,6 @@
   		"graphUriPath": "facebook",
   		"endpoint": "/facebook"
   	},
-  	"ppl": {
-  		"graphUriPath": "ppl",
-  		"endpoint": "/ppl"
-  	},
   	"spotify": {
   		"graphUriPath": "spotify",
   		"endpoint": "/spotify"
