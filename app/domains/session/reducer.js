@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import { createReducer } from 'redux-immutablejs'
+import { handle } from 'redux-pack'
 
 import * as actions from './actionTypes'
 import * as model from './model'
@@ -15,10 +16,13 @@ export const initialState = {
 
 export default createReducer(fromJS(initialState), {
   [actions.LOGIN]: (state, action) =>
-    state.merge({
-      account: createAccount(action.payload.account),
-      graph: action.payload.graph,
-      isNewUser: action.payload.isNewUser,
+    handle(state, action, {
+      success: prevState =>
+        prevState.merge({
+          account: createAccount(action.meta.account),
+          graph: action.meta.graph,
+          isNewUser: action.meta.isNewUser,
+        }),
     }),
 
   [actions.LOGOUT]: state => state.merge(initialState),

@@ -1,22 +1,18 @@
-import { identity } from 'meta.js'
-
+import { KordId } from 'core/services'
 import * as actions from './actionTypes'
 
 /**
  * Start session and set account
  *
  * @param  {Object}  account           Decrypted Ethereum keystore
- * @param  {String}  username          META ID username
+ * @param  {String}  graph             KORD Claims Graph path
  * @param  {Boolean} [isNewUser=false] Flag a newly created user during login process
  * @return {Object}                    Flux Standard Action
  */
-export const login = (account, username, isNewUser = false) => ({
+export const login = (account, graph, isNewUser = false) => ({
+  meta: { account, graph, isNewUser },
   type: actions.LOGIN,
-  payload: {
-    account,
-    graph: identity.getClaimsGraphFromUsername(username),
-    isNewUser,
-  },
+  promise: KordId.readClaims({ filter: { graph } }),
 })
 
 /**
