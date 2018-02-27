@@ -54,6 +54,27 @@ export const createClaim = variables => {
 }
 
 /**
+ * Read the graph of a network agent
+ * `id` argument
+ *
+ * @param  {Object} variables                   Query variables
+ * @param  {String} variables.id                Ethereum address of network agent
+ * @return {Object}                             Response data
+ */
+export const readGraph = variables => {
+  return KordNetwork.makeRequest(
+    `
+      query readGraph($id: String!) {
+        graph(id: $id) {
+          id
+        }
+      }
+    `,
+    variables
+  )
+}
+
+/**
  * Read all verifiable claims from a KORD Claims Graph by `claim`, `graph`,
  * `issuer`, `property` or `subject`
  *
