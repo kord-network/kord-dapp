@@ -1,24 +1,19 @@
 import { KordNetwork } from 'core/services'
 
 /**
- * Create a new KORD Identity and Claims Graph
+ * Create a new KORD Graph
  *
  * @param  {Object} variables                    Query variables
- * @param  {Object} variables.identity           IdentityInput object
- * @param  {String} variables.identity.owner     Ethereum address of KORD Identity
- * @param  {String} variables.identity.signature `username` signed with `owner` private key
- * @param  {String} variables.identity.username  Unique username
+ * @param  {Object} variables.graph              GraphInput object
+ * @param  {String} variables.graph.id           Ethereum address of KORD agents graph
  * @return {Object}                              Response data
  */
-export const createIdentity = variables => {
+export const createGraph = variables => {
   return KordNetwork.makeRequest(
     `
-      mutation CreateIdentity($identity: IdentityInput!) {
-        createIdentity(input: $identity) {
+      mutation CreateGraph($graph: GraphInput!) {
+        createGraph(input: $graph) {
           id
-          owner
-          signature
-          username
         }
       }
     `,
