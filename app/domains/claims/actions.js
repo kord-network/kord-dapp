@@ -1,4 +1,4 @@
-import { KordId } from 'core/services'
+import { KordGraph } from 'core/services'
 import * as actions from './actionTypes'
 
 /**
@@ -16,7 +16,7 @@ import * as actions from './actionTypes'
 export const createClaim = claim => ({
   meta: { graph: claim.graph },
   type: actions.CREATE_CLAIM,
-  promise: KordId.createClaim({ claim }),
+  promise: KordGraph.createClaim({ claim }),
 })
 
 /**
@@ -28,5 +28,8 @@ export const createClaim = claim => ({
 export const readClaimsByGraph = graph => ({
   meta: { graph },
   type: actions.READ_CLAIMS,
-  promise: KordId.readClaims({ filter: { graph } }),
+  promise: KordGraph.readClaimsByGraph({
+    id: graph,
+    filter: { subject: graph },
+  }),
 })

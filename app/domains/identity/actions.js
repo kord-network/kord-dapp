@@ -1,6 +1,6 @@
 import { identity } from 'meta.js'
 
-import { KordId } from 'core/services'
+import { KordGraph } from 'core/services'
 import * as actions from './actionTypes'
 
 /**
@@ -14,7 +14,7 @@ import * as actions from './actionTypes'
  */
 export const createIdentity = (account, username) => ({
   type: actions.CREATE_IDENTITY,
-  promise: KordId.createIdentity({
+  promise: KordGraph.createIdentity({
     identity: identity.createIdentityObject(
       account,
       identity.getUsernameFromName(username)
