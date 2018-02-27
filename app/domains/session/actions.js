@@ -11,7 +11,10 @@ import * as actions from './actionTypes'
  */
 export const unlockAccount = (keystore, password) => ({
   type: actions.UNLOCK_ACCOUNT,
-  payload: accounts.create(JSON.parse(keystore), password),
+  payload: {
+    keystore: JSON.parse(keystore),
+    account: accounts.create(JSON.parse(keystore), password),
+  },
 })
 
 /**
