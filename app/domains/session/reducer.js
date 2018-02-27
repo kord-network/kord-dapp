@@ -13,14 +13,10 @@ export const initialState = {
 }
 
 export default createReducer(fromJS(initialState), {
-  [actions.LOGIN]: (state, action) =>
+  [actions.UNLOCK_ACCOUNT]: (state, action) =>
     state.merge({
-      account: createAccount(action.payload.account),
-      graph: action.payload.graph,
-      isNewUser: action.payload.isNewUser,
+      account: createAccount(action.payload),
     }),
-
-  [actions.LOGOUT]: state => state.merge(initialState),
 
   [actions.SET_IS_NEW_USER]: (state, action) => state.merge(action.payload),
 

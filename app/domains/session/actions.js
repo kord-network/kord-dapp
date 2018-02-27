@@ -1,31 +1,17 @@
-import { identity } from 'meta.js'
+import { accounts } from 'core/util'
 
 import * as actions from './actionTypes'
 
 /**
  * Start session and set account
  *
- * @param  {Object}  account           Decrypted Ethereum keystore
- * @param  {String}  username          META ID username
- * @param  {Boolean} [isNewUser=false] Flag a newly created user during login process
+ * @param  {Object}  keystore          Encrypted Ethereum keystore
+ * @param  {String}  password          Password for the keystore
  * @return {Object}                    Flux Standard Action
  */
-export const login = (account, username, isNewUser = false) => ({
-  type: actions.LOGIN,
-  payload: {
-    account,
-    graph: identity.getClaimsGraphFromUsername(username),
-    isNewUser,
-  },
-})
-
-/**
- * End session and reset account
- *
- * @return {Object} Flux Standard Action
- */
-export const logout = () => ({
-  type: actions.LOGOUT,
+export const unlockAccount = (keystore, password) => ({
+  type: actions.UNLOCK_ACCOUNT,
+  payload: accounts.create(JSON.parse(keystore), password),
 })
 
 /**
