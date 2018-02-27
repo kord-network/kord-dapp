@@ -81,11 +81,11 @@ export const readGraph = variables => {
  * @param  {Object} variables                     Query variables
  * @param  {Object} variables.filter              ClaimFilter object
  * @param  {String} variables.id                  URI of the agents graph (ETH public addr)
- * @param  {String} variables.filter.graph        URI of the agents graph
  * @param  {String} [variables.filter.issuer]     Ethereum address of issuer
  * @param  {String} [variables.filter.subject]    Ethereum address of subject
  * @param  {String} [variables.filter.property]   Key of the claim
  * @param  {String} [variables.filter.claim]      Value of the claim
+ * @param  {String} [variables.filter.signature]  Issuer's signature of the claim
  * @return {Object}                               Response data
  */
 export const readClaimsByGraph = variables => {
@@ -94,11 +94,11 @@ export const readClaimsByGraph = variables => {
       query readClaimsByGraph($id: String!, $filter: ClaimFilter!) {
         graph(id: $id) {
           claim (filter: $filter) {
-            graph
             issuer
             subject
             property
             claim
+            signature
           }
         }
       }
