@@ -1,7 +1,7 @@
 import { Actions as farce } from 'farce'
 
 import { routes } from 'core/routes'
-import { isDomainAction } from 'core/util'
+import { isDomainAction, hasAsyncActionSucceeded } from 'core/util'
 import { actions as ClaimsActions } from 'domains/claims'
 import { actionTypes as session, name } from 'domains/session'
 import { actions as MarketActions } from 'domains/marketplace'
@@ -10,9 +10,12 @@ const SessionMiddleware = ({ dispatch }) => next => action => {
   // action not in namespace? abort!
   if (!isDomainAction(name, action.type)) return next(action)
 
-  if (session.LOGIN === action.type) {
+  if (
+    session.UNLOCK_ACCOUNT === action.type &&
+    hasAsyncActionSucceeded(action)
+  ) {
     // fetch user's KORD Claims Graph
-    dispatch(ClaimsActions.readClaimsByGraph(action.payload.graph))
+    dispatch(ClaimsActions.readClaimsByGraph(action.payload.account.address))
 
     // fetch marketplaces from KORD network
     dispatch(MarketActions.getMarketplaces())
