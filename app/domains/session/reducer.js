@@ -8,7 +8,6 @@ const createAccount = account => model.accountFactory(account)
 
 export const initialState = {
   account: null,
-  graph: null,
   isNewUser: false,
   oAuthClaimMessage: null,
 }

@@ -1,4 +1,3 @@
-import { identity } from 'meta.js'
 import { createSelector } from 'reselect'
 
 import { selectors as Claims } from 'domains/claims'
@@ -40,15 +39,6 @@ const getIsLoggedIn = createSelector(getAccount, account => {
 })
 
 /**
- * Get session account's claims graph name
- *
- * @type {Boolean}
- */
-const getGraph = createSelector(getAll, state => {
-  return state.get('graph')
-})
-
-/**
  * Get new user flag
  *
  * @type {Boolean}
@@ -72,30 +62,19 @@ const getOAuthClaimMessage = createSelector(getAll, state => {
  * @type {Object}
  */
 const getSessionClaimsGraph = createSelector(
-  [getGraph, Claims.claimsWithProfileData],
-  (graph, claims) => {
-    const sessionClaimsGraph = claims[graph]
+  [getAccountAddress, Claims.claimsWithProfileData],
+  (address, claims) => {
+    const sessionClaimsGraph = claims[address]
 
     return sessionClaimsGraph
   }
 )
 
-/**
- * Get KORD Identity `id` of session account
- *
- * @type {Object}
- */
-const getSessionIdentityId = createSelector(getGraph, graph => {
-  return graph && identity.getIdFromUsername(graph)
-})
-
 export default {
   account: getAccount,
   accountAddress: getAccountAddress,
   isLoggedIn: getIsLoggedIn,
-  graph: getGraph,
   isNewUser: getIsNewUser,
   oAuthClaimMessage: getOAuthClaimMessage,
   sessionClaimsGraph: getSessionClaimsGraph,
-  sessionIdentityId: getSessionIdentityId,
 }
