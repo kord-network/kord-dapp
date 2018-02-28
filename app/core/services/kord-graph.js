@@ -3,10 +3,10 @@ import { KordNetwork } from 'core/services'
 /**
  * Create a new KORD Graph
  *
- * @param  {Object} variables                    Query variables
- * @param  {Object} variables.graph              GraphInput object
- * @param  {String} variables.graph.id           Ethereum address of KORD agents graph
- * @return {Object}                              Response data
+ * @param  {Object} variables          Query variables
+ * @param  {Object} variables.graph    GraphInput object
+ * @param  {String} variables.graph.id Ethereum address of KORD agents graph
+ * @return {Object}                    Response data
  */
 export const createGraph = variables => {
   return KordNetwork.makeRequest(
@@ -22,7 +22,7 @@ export const createGraph = variables => {
 }
 
 /**
- * Add a new verifiable claim to a KORD Claims Graph
+ * Add a new verified claim to a KORD Graph
  *
  * @param  {Object} variables                 Query variables
  * @param  {Object} variables.claim           ClaimInput object
@@ -41,7 +41,6 @@ export const createClaim = variables => {
         createClaim(input: $claim) {
           id
           claim
-          graph
           issuer
           property
           signature
@@ -54,45 +53,25 @@ export const createClaim = variables => {
 }
 
 /**
- * Read the graph of a network agent
- * `id` argument
- *
- * @param  {Object} variables                   Query variables
- * @param  {String} variables.id                URI of the agents graph (ETH public addr)
- * @return {Object}                             Response data
- */
-export const readGraph = variables => {
-  return KordNetwork.makeRequest(
-    `
-      query readGraph($id: String!) {
-        graph(id: $id) {
-          id
-        }
-      }
-    `,
-    variables
-  )
-}
-
-/**
- * Read all verifiable claims from a KORD Claims Graph by `graph`, `claim`
+ * Read verified claims from a KORD Graph
  * `id` => `graph`, issuer`, `property`, `subject` or `claim`
  *
- * @param  {Object} variables                     Query variables
- * @param  {Object} variables.filter              ClaimFilter object
- * @param  {String} variables.id                  URI of the agents graph (ETH public addr)
- * @param  {String} [variables.filter.issuer]     Ethereum address of issuer
- * @param  {String} [variables.filter.subject]    Ethereum address of subject
- * @param  {String} [variables.filter.property]   Key of the claim
- * @param  {String} [variables.filter.claim]      Value of the claim
- * @param  {String} [variables.filter.signature]  Issuer's signature of the claim
- * @return {Object}                               Response data
+ * @param  {Object} variables                    Query variables
+ * @param  {Object} variables.filter             ClaimFilter object
+ * @param  {String} variables.id                 ETH address of graph owner
+ * @param  {String} [variables.filter.issuer]    Ethereum address of issuer
+ * @param  {String} [variables.filter.subject]   Ethereum address of subject
+ * @param  {String} [variables.filter.property]  Key of the claim
+ * @param  {String} [variables.filter.claim]     Value of the claim
+ * @param  {String} [variables.filter.signature] Issuer's signature of the claim
+ * @return {Object}                              Response data
  */
 export const readClaimsByGraph = variables => {
   return KordNetwork.makeRequest(
     `
       query readClaimsByGraph($id: String!, $filter: ClaimFilter!) {
         graph(id: $id) {
+          id
           claim (filter: $filter) {
             issuer
             subject
