@@ -5,7 +5,7 @@ import { KordNetwork } from 'core/services'
  *
  * @param  {Object} variables          Query variables
  * @param  {Object} variables.graph    GraphInput object
- * @param  {String} variables.graph.id Ethereum address of KORD agents graph
+ * @param  {String} variables.graph.id KORD ID
  * @return {Object}                    Response data
  */
 export const createGraph = variables => {
@@ -26,7 +26,7 @@ export const createGraph = variables => {
  *
  * @param  {Object} variables                 Query variables
  * @param  {Object} variables.graph           SetGraphInput object
- * @param  {String} variables.graph.id        Ethereum address of KORD agents graph
+ * @param  {String} variables.graph.id        KORD ID
  * @param  {String} variables.graph.hash      Graph storage location
  * @param  {String} variables.graph.signature Signed hash of storage location
  * @return {Object}                           Response data
@@ -81,7 +81,7 @@ export const createClaim = variables => {
  *
  * @param  {Object} variables                    Query variables
  * @param  {Object} variables.filter             ClaimFilter object
- * @param  {String} variables.id                 ETH address of graph owner
+ * @param  {String} variables.id                 KORD ID
  * @param  {String} [variables.filter.issuer]    Ethereum address of issuer
  * @param  {String} [variables.filter.subject]   Ethereum address of subject
  * @param  {String} [variables.filter.property]  Key of the claim
