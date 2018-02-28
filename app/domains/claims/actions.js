@@ -22,14 +22,14 @@ export const createClaim = claim => ({
 /**
  * Read verified claims from a KORD Claims Graph
  *
- * @param  {String} id 		 							ETH address of graph owner
- * @param  {Object} [filter]						Claim filter object
- * @param  {String} [filter.issuer]     Ethereum address of issuer
- * @param  {String} [filter.subject]    Ethereum address of subject
- * @param  {String} [filter.property]   Key of the claim
- * @param  {String} [filter.claim]      Value of the claim
- * @param  {String} [filter.signature]  Issuer's signature of the claim
- * @return {Object}    		 							Flux Standard Action
+ * @param  {String} id                 ETH address of graph owner
+ * @param  {Object} [filter]           Claim filter object
+ * @param  {String} [filter.issuer]    Ethereum address of issuer
+ * @param  {String} [filter.subject]   Ethereum address of subject
+ * @param  {String} [filter.property]  Key of the claim
+ * @param  {String} [filter.claim]     Value of the claim
+ * @param  {String} [filter.signature] Issuer's signature of the claim
+ * @return {Object}                    Flux Standard Action
  */
 export const readClaimsByGraph = (id, filter = {}) => ({
   type: actions.READ_CLAIMS,
