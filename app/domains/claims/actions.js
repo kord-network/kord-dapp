@@ -23,6 +23,7 @@ export const createClaim = claim => ({
  * Read verified claims from a KORD Claims Graph
  *
  * @param  {String} id 		 							ETH address of graph owner
+ * @param  {Object} [filter]						Claim filter object
  * @param  {String} [filter.issuer]     Ethereum address of issuer
  * @param  {String} [filter.subject]    Ethereum address of subject
  * @param  {String} [filter.property]   Key of the claim
