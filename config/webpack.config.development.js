@@ -6,15 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const graphql = require('./graphql.config')
 
-const HOST = 'http://localhost'
+const BASE_NAME = '/'
 const PORT = 3000
-const APP_URL = `${HOST}:${PORT}/`
 
 const GLOBALS = {
   'process.env': {
-    APP_URL: JSON.stringify(APP_URL),
-    BASE_NAME: JSON.stringify('/'),
-    CLAIM_SERVICE_HOST: JSON.stringify(`${HOST}:9000`),
+    BASE_NAME: JSON.stringify(BASE_NAME),
+    CLAIM_SERVICE_HOST: JSON.stringify('http://localhost:9000'),
     KORD_NETWORK_GRAPHQL_ENDPOINT: JSON.stringify(
       graphql.endpoints.development
     ),
@@ -22,7 +20,7 @@ const GLOBALS = {
     SENTRY_DATA_SOURCE_NAME: JSON.stringify(
       'https://db8bdca5895449dbbf204e4c5143e305@sentry.io/273752'
     ),
-    SWARM_HOST: JSON.stringify(`${HOST}:8500`),
+    SWARM_HOST: JSON.stringify('http://localhost:5000'),
   },
 }
 
@@ -56,7 +54,7 @@ module.exports = {
     new CleanPlugin(['./**/*'], PATHS.dist),
     new CopyPlugin([{ from: PATHS.img, to: 'img' }]),
     new HtmlWebpackPlugin({
-      basename: APP_URL,
+      basename: BASE_NAME,
       favicon: path.resolve(PATHS.static, 'favicon.ico'),
       template: path.resolve(PATHS.static, 'index.ejs'),
     }),

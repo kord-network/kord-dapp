@@ -6,21 +6,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const graphql = require('./graphql.config')
 
-const DIRECTORY = 'identity'
-const HOST = 'https://meta.pilots.jaak.io'
-const APP_URL = `${HOST}/${DIRECTORY}/`
+const BASE_NAME = '/'
 
 const GLOBALS = {
   'process.env': {
-    APP_URL: JSON.stringify(APP_URL),
-    BASE_NAME: JSON.stringify(`/${DIRECTORY}/`),
-    CLAIM_SERVICE_HOST: JSON.stringify(`${HOST}/claims`),
+    BASE_NAME: JSON.stringify(BASE_NAME),
+    CLAIM_SERVICE_HOST: JSON.stringify('/claims'),
     KORD_NETWORK_GRAPHQL_ENDPOINT: JSON.stringify(graphql.endpoints.production),
     NODE_ENV: JSON.stringify('production'),
     SENTRY_DATA_SOURCE_NAME: JSON.stringify(
       'https://db8bdca5895449dbbf204e4c5143e305@sentry.io/273752'
     ),
-    SWARM_HOST: JSON.stringify(HOST),
+    SWARM_HOST: JSON.stringify('/'),
   },
 }
 
@@ -39,7 +36,7 @@ module.exports = {
   output: {
     path: PATHS.dist,
     filename: 'bundle.js',
-    publicPath: `/${DIRECTORY}/`,
+    publicPath: '/',
   },
 
   plugins: [
@@ -50,7 +47,7 @@ module.exports = {
     new CleanPlugin(['./**/*'], PATHS.dist),
     new CopyPlugin([{ from: PATHS.img, to: 'img' }]),
     new HtmlWebpackPlugin({
-      basename: APP_URL,
+      basename: BASE_NAME,
       favicon: path.resolve(PATHS.static, 'favicon.ico'),
       template: path.resolve(PATHS.static, 'index.ejs'),
     }),
