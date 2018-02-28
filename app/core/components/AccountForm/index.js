@@ -1,25 +1,23 @@
 import React from 'react'
 import { compose, withState } from 'recompose'
-import { Box, Input, Label, Text, Button } from 'jaak-primitives'
+import { Box, Button, Input, Label, Text } from 'jaak-primitives'
 
 import { readFileAsText } from 'core/util'
 
 const AccountForm = ({
-  submitFormAction,
   keystore,
-  password,
   keystoreName,
+  password,
   setKeystore,
-  setPassword,
   setKeystoreName,
+  setPassword,
+  onCreateKeystore,
+  onSubmitForm,
 }) => (
   <Box
     flexDirection="column"
     size={['auto', '50vh']}
     padding={['30px', '15px']}
-    style={{
-      alignItems: 'space-between',
-    }}
   >
     <Box flexDirection="column">
       <Label>Keystore Password</Label>
@@ -38,29 +36,24 @@ const AccountForm = ({
         textAlign="center"
         lineHeight="50px"
         backgroundColor="#f7f7f7"
-        style={{
-          width: '100%',
-          height: '50px',
-          display: 'block',
-          cursor: 'pointer',
-        }}
       >
-        {keystoreName !== null ? keystoreName : 'Upload Keystore'}
+        {keystoreName}
       </Label>
       <Input
         display="none"
         id="keystoreInput"
         type="file"
-        onChange={({ target: { files: [ks] } }) => {
-          setKeystoreName(ks.name)
-
-          return readFileAsText(ks).then(setKeystore)
-        }}
+        onChange={({ target: { files: [keystore] } }) =>
+          readFileAsText(keystore)
+            .then(setKeystore)
+            .then(setKeystoreName(keystore.name))
+        }
       />
       <Button
         size={['50px', '100%']}
         backgroundColor="#f0f0f0"
-        onClick={() => password !== '' && console.info(`Create keystore`)}
+        disabled={!password}
+        onClick={() => onCreateKeystore()}
       >
         <Text>Dont have a keystore? Create one here</Text>
       </Button>
@@ -70,7 +63,7 @@ const AccountForm = ({
         size={['60px', '100%']}
         backgroundColor="#f7f7f7"
         lineHeight="60px"
-        onClick={() => submitFormAction(keystore, password)}
+        onClick={() => onSubmitForm(keystore, password)}
       >
         <Text textAlign="center">Submit</Text>
       </Button>
@@ -80,7 +73,7 @@ const AccountForm = ({
 
 const enhanceComp = compose(
   withState('keystore', 'setKeystore', null),
-  withState('keystoreName', 'setKeystoreName', null),
+  withState('keystoreName', 'setKeystoreName', 'Upload Keystore'),
   withState('password', 'setPassword', '')
 )
 
