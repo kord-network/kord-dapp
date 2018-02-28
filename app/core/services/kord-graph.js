@@ -22,6 +22,29 @@ export const createGraph = variables => {
 }
 
 /**
+ * Set the graph storage location
+ *
+ * @param  {Object} variables                 Query variables
+ * @param  {Object} variables.graph           SetGraphInput object
+ * @param  {String} variables.graph.id        Ethereum address of KORD agents graph
+ * @param  {String} variables.graph.hash      Graph storage location
+ * @param  {String} variables.graph.signature Signed hash of storage location
+ * @return {Object}                           Response data
+ */
+export const setGraph = variables => {
+  return KordNetwork.makeRequest(
+    `
+      mutation SetGraph($graph: SetGraphInput!) {
+        setGraph(input: $graph) {
+          id
+        }
+      }
+    `,
+    variables
+  )
+}
+
+/**
  * Add a new verified claim to a KORD Graph
  *
  * @param  {Object} variables                 Query variables
