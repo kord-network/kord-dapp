@@ -3,15 +3,15 @@ import * as actions from './actionTypes'
 /**
  * Start session and set account
  *
- * @param  {Object}  keystore          		Encrypted Ethereum keystore object
  * @param  {Object}  account           		Ethereum account object
  * @param  {String}  account.address   		Public address
  * @param  {String}  account.privateKey		Private key
+ * @param  {Object}  keystore          		Encrypted Ethereum keystore object
  * @return {Object}                    		Flux Standard Action
  */
-export const unlockAccount = (keystore, account) => ({
+export const unlockAccount = (account, keystore) => ({
   type: actions.UNLOCK_ACCOUNT,
-  payload: { keystore, account },
+  payload: { account, keystore },
 })
 
 /**
