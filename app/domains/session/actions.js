@@ -1,5 +1,9 @@
 import * as actions from './actionTypes'
 
+export const clearSession = () => ({
+  type: actions.CLEAR_SESSION,
+})
+
 /**
  * Start session and set account
  *
