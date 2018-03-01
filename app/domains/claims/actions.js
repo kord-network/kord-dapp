@@ -6,7 +6,7 @@ import * as actions from './actionTypes'
  *
  * @param  {Object} claim            Verified claim data
  * @param  {String} claim.claim      Value of the claim
- * @param  {String} claim.graph      URI of claims graph
+ * @param  {String} claim.graph      Graph ID
  * @param  {String} claim.issuer     Ethereum address of claim issuer
  * @param  {String} claim.property   Property of the claim
  * @param  {String} claim.signature  `claim` value signed with `issuer` private key
