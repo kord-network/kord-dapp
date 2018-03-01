@@ -14,7 +14,8 @@
   },
   "pre-commit": {
     "run": [
-      "lint:staged"
+      "lint:staged",
+      "test"
     ],
     "silent": true
   },
