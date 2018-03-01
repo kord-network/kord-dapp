@@ -7,7 +7,7 @@ const SessionMiddleware = ({ dispatch }) => next => action => {
   // action not in namespace? abort!
   if (!isDomainAction(name, action.type)) return next(action)
 
-  if (session.LOAD_APPLICATION === action.type) {
+  if (session.NEW_SESSION === action.type) {
     // All sessions require the marketplace response data; locked or unlocked accounts
     dispatch(MarketplaceActions.getMarketplaces())
   }

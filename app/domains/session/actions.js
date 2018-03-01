@@ -1,15 +1,6 @@
 import * as actions from './actionTypes'
 
 /**
- * Signal the initial loading of the application
- *
- * @return {Object} Flux Standard Action
- */
-export const loadApplication = () => ({
-  type: actions.LOAD_APPLICATION,
-})
-
-/**
  * Signal the start of a new session
  *
  * @return {Object} Flux Standard Action
