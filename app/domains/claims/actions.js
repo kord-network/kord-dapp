@@ -14,7 +14,6 @@ import * as actions from './actionTypes'
  * @return {Object}                  Flux Standard Action
  */
 export const createClaim = claim => ({
-  meta: { graph: claim.graph },
   type: actions.CREATE_CLAIM,
   promise: KordGraph.createClaim({ claim }),
 })
