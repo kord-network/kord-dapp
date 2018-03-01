@@ -67,7 +67,7 @@
     "ethereumjs-wallet": "^0.6.0",
     "farce": "^0.2.5",
     "found": "^0.3.8",
-    "graphql-request": "^1.4.1",
+    "graphql-request": "^1.5.1",
     "idb-keyval": "^2.3.0",
     "immutable": "^3.8.2",
     "jaak-primitives": "^1.0.0-beta",
