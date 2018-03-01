@@ -12,6 +12,7 @@ export const initialState = {
   graph: null,
   isNewUser: false,
   oAuthClaimMessage: null,
+  persistDecryptedKeystore: false,
 }
 
 export default createReducer(fromJS(initialState), {
@@ -28,5 +29,6 @@ export default createReducer(fromJS(initialState), {
       encryptedKeystores: {
         [action.payload.account.address]: action.payload.keystore,
       },
+      persistDecryptedKeystore: action.payload.persistDecryptedKeystore,
     }),
 })

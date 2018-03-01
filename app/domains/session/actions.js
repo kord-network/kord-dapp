@@ -1,5 +1,10 @@
 import * as actions from './actionTypes'
 
+/**
+ * Clear session state
+ *
+ * @return {Object} Flux Standard Action
+ */
 export const clearSession = () => ({
   type: actions.CLEAR_SESSION,
 })
@@ -11,6 +16,23 @@ export const clearSession = () => ({
  */
 export const newSession = () => ({
   type: actions.NEW_SESSION,
+})
+
+/**
+ * @param  {Object}  account                  Ethereum account object
+ * @param  {String}  account.address          Public address
+ * @param  {String}  account.privateKey       Private key
+ * @param  {Object}  keystore                 Encrypted Ethereum keystore object
+ * @param  {Boolean} persistDecryptedKeystore Flag to persist decrypted keystore
+ * @return {Object}                           Flux Standard Action
+ */
+export const unlockAccount = (
+  account,
+  keystore,
+  persistDecryptedKeystore = false
+) => ({
+  type: actions.UNLOCK_ACCOUNT,
+  payload: { account, keystore, persistDecryptedKeystore },
 })
 
 /**
@@ -33,18 +55,4 @@ export const setIsNewUser = isNewUser => ({
 export const setOAuthClaimMessage = oAuthClaimMessage => ({
   type: actions.SET_OAUTH_CLAIM_MESSAGE,
   payload: { oAuthClaimMessage },
-})
-
-/**
- * Start session and set account
- *
- * @param  {Object}  account           		Ethereum account object
- * @param  {String}  account.address   		Public address
- * @param  {String}  account.privateKey		Private key
- * @param  {Object}  keystore          		Encrypted Ethereum keystore object
- * @return {Object}                    		Flux Standard Action
- */
-export const unlockAccount = (account, keystore) => ({
-  type: actions.UNLOCK_ACCOUNT,
-  payload: { account, keystore },
 })

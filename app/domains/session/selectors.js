@@ -57,6 +57,15 @@ const getOAuthClaimMessage = createSelector(getAll, state => {
 })
 
 /**
+ * Get persist decrypted keystore flag
+ *
+ * @type {Boolean}
+ */
+const getPersistDecryptedKeystore = createSelector(getAll, state => {
+  return state.get('persistDecryptedKeystore')
+})
+
+/**
  * Get KORD Claims Graph of session account
  *
  * @type {Object}
@@ -76,5 +85,6 @@ export default {
   isLoggedIn: getIsLoggedIn,
   isNewUser: getIsNewUser,
   oAuthClaimMessage: getOAuthClaimMessage,
+  persistDecryptedKeystore: getPersistDecryptedKeystore,
   sessionClaimsGraph: getSessionClaimsGraph,
 }
