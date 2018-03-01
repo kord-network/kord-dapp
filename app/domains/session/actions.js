@@ -10,6 +10,16 @@ export const clearSession = () => ({
 })
 
 /**
+ * Lock account by clearing private key from state
+ *
+ * @return {Object} Flux Standard Action
+ */
+export const lockAccount = () => ({
+  type: actions.LOCK_ACCOUNT,
+  payload: { account: { privateKey: null } },
+})
+
+/**
  * Signal the start of a new session
  *
  * @return {Object} Flux Standard Action
