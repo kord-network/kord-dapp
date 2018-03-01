@@ -15,6 +15,8 @@ export const initialState = {
 }
 
 export default createReducer(fromJS(initialState), {
+  [actions.CLEAR_SESSION]: state => state.merge(fromJS(initialState)),
+
   [actions.SET_IS_NEW_USER]: (state, action) => state.merge(action.payload),
 
   [actions.SET_OAUTH_CLAIM_MESSAGE]: (state, action) =>
