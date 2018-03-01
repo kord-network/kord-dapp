@@ -88,19 +88,3 @@ export const readFileAsText = file =>
  */
 export const toCapitalised = (str = '') =>
   str.replace(/\b\w/g, l => l.toUpperCase())
-
-/**
- * Get the graph URI for each service provider, from each market
- *
- * @param {Object} markets  Object keyed by guardian role type, with objects containing their info
- * @return {Array}          Graph URIs
- */
-export const getServiceProviderUris = markets =>
-  Object.values(markets)
-    .map(market =>
-      Object.values(market).map(
-        service =>
-          service.hasOwnProperty('graphUriPath') && service.graphUriPath
-      )
-    )
-    .reduce((a, b) => a.concat(b))

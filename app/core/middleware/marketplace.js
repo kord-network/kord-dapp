@@ -1,7 +1,6 @@
 import { hasAsyncActionSucceeded, isDomainAction } from 'core/util'
-import { actionTypes as marketplace } from 'domains/marketplace'
 import { actions as ClaimsActions } from 'domains/claims'
-import { getServiceProviderUris } from 'core/util'
+import { actionTypes as marketplace, name } from 'domains/marketplace'
 
 const MarketplaceMiddleware = ({ dispatch }) => next => action => {
   // action not in namespace? abort!
@@ -11,17 +10,12 @@ const MarketplaceMiddleware = ({ dispatch }) => next => action => {
     marketplace.GET_MARKETPLACES === action.type &&
     hasAsyncActionSucceeded(action)
   ) {
-    // Get the available market types
-    const markets = action.payload
-
-    if (Object.keys(markets).length) {
-      // Get the graph URI for each service provider
-      const uris = getServiceProviderUris(markets)
-
-      // Get the claims made by each service provider
-      // The retrieval of profile claims is handled in the `claims` middleware
-      uris.map(uri => dispatch(ClaimsActions.readClaimsByGraph(uri)))
-    }
+    // read claims from each marketplace graph
+    Object.values(action.payload).map(marketplace =>
+      Object.values(marketplace).map(service => {
+        dispatch(ClaimsActions.readClaimsByGraph(service.graphUriPath))
+      })
+    )
   }
 
   return next(action)
