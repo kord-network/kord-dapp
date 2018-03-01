@@ -5,9 +5,17 @@ export const clearSession = () => ({
 })
 
 /**
- * Start a new session
+ * Signal the initial loading of the application
  *
- * @description Used for dispatching actions for session initiation
+ * @return {Object} Flux Standard Action
+ */
+export const loadApplication = () => ({
+  type: actions.LOAD_APPLICATION,
+})
+
+/**
+ * Signal the start of a new session
+ *
  * @return {Object} Flux Standard Action
  */
 export const newSession = () => ({
