@@ -1,16 +1,4 @@
 import { identityClaims } from 'meta.js'
-import { META_ID_USERNAME_SUFFIX as KORD_GRAPH_URI_SCHEME } from '@meta.js/shared'
-
-/**
- * Get the path from a KORD graph URI
- *
- * @example getPathFromGraphURI('luke.kord') // => 'luke'
- *
- * @param  {String} graphURI KORD graph path
- * @return {String}          Path extracted from graph URI
- */
-export const getPathFromGraphURI = graphURI =>
-  graphURI.replace(new RegExp(KORD_GRAPH_URI_SCHEME, 'i'), '')
 
 /**
  * Filter all profile claims from a set of KORD Identity Claim objects
