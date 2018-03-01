@@ -17,6 +17,16 @@ const KordNetwork = new GraphQLClient(KORD_NETWORK_GRAPHQL_ENDPOINT, {
 })
 
 /**
+ * Utility function that wraps `KordNetwork.rawRequest()`
+ *
+ * @param  {String} query     GraphQL query string
+ * @param  {Object} variables GraphQL query variables
+ * @return {Object}           Response data
+ */
+export const makeRawRequest = (query, variables) =>
+  KordNetwork.rawRequest(query, variables)
+
+/**
  * Utility function that wraps `KordNetwork.request()`
  *
  * @param  {String} query     GraphQL query string
