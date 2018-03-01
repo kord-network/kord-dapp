@@ -1,6 +1,16 @@
 import * as actions from './actionTypes'
 
 /**
+ * Start a new session
+ *
+ * @description Used for dispatching actions for session initiation
+ * @return {Object} Flux Standard Action
+ */
+export const newSession = () => ({
+  type: actions.NEW_SESSION,
+})
+
+/**
  * Set the newly created user flag
  *
  * @param  {Boolean} isNewUser Newly created user flag
