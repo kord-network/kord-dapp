@@ -1,3 +1,4 @@
+import GraphIDE from './GraphIDE'
 import Home from './Home'
 
-export { Home }
+export { GraphIDE, Home }
