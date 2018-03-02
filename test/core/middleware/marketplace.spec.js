@@ -17,33 +17,37 @@ describe('core/middleware/marketplace', () => {
     store = mocks.store
   })
 
-  it('Should pass through unobserved action', () => {
-    const action = { type: 'marketplace/TEST_UNOBS_ACTION' }
+  describe('Unprocessed actions', () => {
+    it('Should pass through unobserved action', () => {
+      const action = { type: 'marketplace/TEST_UNOBS_ACTION' }
 
-    invoke(action)
+      invoke(action)
 
-    expect(next).toHaveBeenCalledWith(action)
-  })
-
-  it('Should pass through non-domain action', () => {
-    const action = { type: 'TEST_NON_DOMAIN_ACTION' }
-
-    invoke(action)
-
-    expect(next).toHaveBeenCalledWith(action)
-  })
-
-  it('Should dispatch claims/READ_CLAIMS action on GET_MARKETPLACES action success', () => {
-    const action = makeAsyncAction(LIFECYCLE.SUCCESS, {
-      payload: getMarketplacesActionPayload,
-      type: actionTypes.GET_MARKETPLACES,
+      expect(next).toHaveBeenCalledWith(action)
     })
 
-    invoke(action)
+    it('Should pass through non-domain action', () => {
+      const action = { type: 'TEST_NON_DOMAIN_ACTION' }
 
-    expect(store.dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({ type: claims.READ_CLAIMS })
-    )
-    expect(next).toHaveBeenCalledWith(action)
+      invoke(action)
+
+      expect(next).toHaveBeenCalledWith(action)
+    })
+  })
+
+  describe('Processed actions', () => {
+    it('Should dispatch claims/READ_CLAIMS action on GET_MARKETPLACES action success', () => {
+      const action = makeAsyncAction(LIFECYCLE.SUCCESS, {
+        payload: getMarketplacesActionPayload,
+        type: actionTypes.GET_MARKETPLACES,
+      })
+
+      invoke(action)
+
+      expect(store.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({ type: claims.READ_CLAIMS })
+      )
+      expect(next).toHaveBeenCalledWith(action)
+    })
   })
 })
