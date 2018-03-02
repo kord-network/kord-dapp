@@ -1,13 +1,13 @@
 import {
   BrowserProtocol,
+  Actions as FarceActions,
   createBasenameMiddleware,
   createHistoryEnhancer,
-  Actions as FarceActions,
   queryMiddleware,
 } from 'farce'
-import { createMatchEnhancer, Matcher } from 'found'
+import { Matcher, createMatchEnhancer } from 'found'
 import Immutable from 'immutable'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 
 import { BASE_NAME, STATE_KEY } from 'core/constants'
 import createMiddleware from 'core/middleware'

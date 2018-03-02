@@ -1,5 +1,5 @@
 import { bufferToHex } from 'ethereumjs-util'
-import { generate, fromV3 } from 'ethereumjs-wallet'
+import { fromV3, generate } from 'ethereumjs-wallet'
 
 /**
  * Remove '0x' prefix from a given string if present
