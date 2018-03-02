@@ -1,6 +1,6 @@
 import { identity as MetaIdentity } from 'meta.js'
 
-import { hasAsyncActionSucceeded } from 'core/util'
+import { hasAsyncActionFailed, hasAsyncActionSucceeded } from 'core/util'
 import { actionTypes as claims } from 'domains/claims'
 import {
   actions as IdentityActions,
@@ -29,7 +29,10 @@ const GraphMiddleware = ({ dispatch, getState }) => next => action => {
     )
   }
 
-  if (identity.SET_GRAPH === action.type && hasAsyncActionSucceeded(action)) {
+  if (
+    identity.SET_GRAPH === action.type &&
+    (hasAsyncActionFailed(action) || hasAsyncActionSucceeded(action))
+  ) {
     const persistDecryptedKeystore = SessionSelectors.persistDecryptedKeystore(
       getState()
     )
