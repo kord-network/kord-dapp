@@ -15,62 +15,66 @@ describe('core/middleware/ui', () => {
     store = mocks.store
   })
 
-  it('Should pass through unobserved action', () => {
-    const action = { type: 'TEST_UNOBS_ACTION' }
+  describe('Unprocessed actions', () => {
+    it('Should pass through unobserved action', () => {
+      const action = { type: 'TEST_UNOBS_ACTION' }
 
-    invoke(action)
+      invoke(action)
 
-    expect(next).toHaveBeenCalledWith(action)
+      expect(next).toHaveBeenCalledWith(action)
+    })
   })
 
-  it('Should dispatch ui/UPDATE action on async action failure', () => {
-    const action = makeAsyncAction(LIFECYCLE.FAILURE, {
-      payload: { errors: [] },
-      type: 'TEST_ASYNC_ACTION',
+  describe('Processed actions', () => {
+    it('Should dispatch ui/UPDATE action on async action start', () => {
+      const action = makeAsyncAction(LIFECYCLE.START, {
+        payload: {},
+        type: 'TEST_ASYNC_ACTION',
+      })
+
+      invoke(action)
+
+      expect(store.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          payload: { error: null, isRequesting: true },
+          type: actionTypes.UPDATE,
+        })
+      )
+      expect(next).toHaveBeenCalledWith(action)
     })
 
-    invoke(action)
-
-    expect(store.dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({
-        payload: { error: [], isRequesting: false },
-        type: actionTypes.UPDATE,
+    it('Should dispatch ui/UPDATE action on async action failure', () => {
+      const action = makeAsyncAction(LIFECYCLE.FAILURE, {
+        payload: { errors: [] },
+        type: 'TEST_ASYNC_ACTION',
       })
-    )
-    expect(next).toHaveBeenCalledWith(action)
-  })
 
-  it('Should dispatch ui/UPDATE action on async action start', () => {
-    const action = makeAsyncAction(LIFECYCLE.START, {
-      payload: {},
-      type: 'TEST_ASYNC_ACTION',
+      invoke(action)
+
+      expect(store.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          payload: { error: [], isRequesting: false },
+          type: actionTypes.UPDATE,
+        })
+      )
+      expect(next).toHaveBeenCalledWith(action)
     })
 
-    invoke(action)
-
-    expect(store.dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({
-        payload: { error: null, isRequesting: true },
-        type: actionTypes.UPDATE,
+    it('Should dispatch ui/UPDATE action on async action success', () => {
+      const action = makeAsyncAction(LIFECYCLE.SUCCESS, {
+        payload: {},
+        type: 'TEST_ASYNC_ACTION',
       })
-    )
-    expect(next).toHaveBeenCalledWith(action)
-  })
 
-  it('Should dispatch ui/UPDATE action on async action success', () => {
-    const action = makeAsyncAction(LIFECYCLE.SUCCESS, {
-      payload: {},
-      type: 'TEST_ASYNC_ACTION',
+      invoke(action)
+
+      expect(store.dispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          payload: { isRequesting: false },
+          type: actionTypes.UPDATE,
+        })
+      )
+      expect(next).toHaveBeenCalledWith(action)
     })
-
-    invoke(action)
-
-    expect(store.dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({
-        payload: { isRequesting: false },
-        type: actionTypes.UPDATE,
-      })
-    )
-    expect(next).toHaveBeenCalledWith(action)
   })
 })
