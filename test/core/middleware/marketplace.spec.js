@@ -44,5 +44,6 @@ describe('core/middleware/marketplace', () => {
     expect(store.dispatch).toHaveBeenCalledWith(
       expect.objectContaining({ type: claims.READ_CLAIMS })
     )
+    expect(next).toHaveBeenCalledWith(action)
   })
 })
