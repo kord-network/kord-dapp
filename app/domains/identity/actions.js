@@ -23,7 +23,7 @@ export const createIdentity = address => ({
  * @param  {String} graph.hash      KORD Graph hash location
  * @param  {String} graph.id        KORD ID
  * @param  {String} graph.signature Signed KORD Graph hash
- * @return {Object} 				        Flux Standard Action
+ * @return {Object}                 Flux Standard Action
  */
 export const setGraph = graph => ({
   type: actions.SET_GRAPH,
