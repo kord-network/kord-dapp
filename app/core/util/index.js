@@ -1,8 +1,9 @@
 import { NODE_ENV } from 'core/constants'
 import * as accounts from './eth-accounts'
+import * as graphIDE from './graph-ide'
 import * as kordId from './kord-id'
 
-export { accounts, kordId }
+export { accounts, graphIDE, kordId }
 
 /**
  * Check for development mode
