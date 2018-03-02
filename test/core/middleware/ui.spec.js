@@ -37,6 +37,7 @@ describe('core/middleware/ui', () => {
         type: actionTypes.UPDATE,
       })
     )
+    expect(next).toHaveBeenCalledWith(action)
   })
 
   it('Should dispatch ui/UPDATE action on async action start', () => {
@@ -53,6 +54,7 @@ describe('core/middleware/ui', () => {
         type: actionTypes.UPDATE,
       })
     )
+    expect(next).toHaveBeenCalledWith(action)
   })
 
   it('Should dispatch ui/UPDATE action on async action success', () => {
@@ -69,5 +71,6 @@ describe('core/middleware/ui', () => {
         type: actionTypes.UPDATE,
       })
     )
+    expect(next).toHaveBeenCalledWith(action)
   })
 })
