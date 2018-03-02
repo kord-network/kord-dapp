@@ -9,24 +9,26 @@ const structuredSelector = createStructuredSelector(selectors)(
 )
 
 describe('domains/ui/selectors', () => {
-  it('Should return error selector output', () => {
-    const actual = structuredSelector.error
-    const expected = initialState.get('error')
+  describe('Static selectors', () => {
+    it('Should return error selector output', () => {
+      const actual = structuredSelector.error
+      const expected = initialState.get('error')
 
-    expect(actual).toEqual(expected)
-  })
+      expect(actual).toEqual(expected)
+    })
 
-  it('Should return isRequesting selector output', () => {
-    const actual = structuredSelector.isRequesting
-    const expected = initialState.get('isRequesting')
+    it('Should return isRequesting selector output', () => {
+      const actual = structuredSelector.isRequesting
+      const expected = initialState.get('isRequesting')
 
-    expect(actual).toEqual(expected)
-  })
+      expect(actual).toEqual(expected)
+    })
 
-  it('Should return ui selector output', () => {
-    const actual = structuredSelector.ui
-    const expected = initialState
+    it('Should return ui selector output', () => {
+      const actual = structuredSelector.ui
+      const expected = initialState
 
-    expect(actual).toEqual(expected)
+      expect(actual).toEqual(expected)
+    })
   })
 })
