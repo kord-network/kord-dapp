@@ -9,17 +9,19 @@ const structuredSelector = createStructuredSelector(selectors)(
 )
 
 describe('domains/marketplace/selectors', () => {
-  it('Should return identityProviders selector output', () => {
-    const actual = structuredSelector.identityProviders
-    const expected = initialState.get('IdentityProviders')
+  describe('Static selectors', () => {
+    it('Should return identityProviders selector output', () => {
+      const actual = structuredSelector.identityProviders
+      const expected = initialState.get('IdentityProviders')
 
-    expect(actual).toEqual(expected)
-  })
+      expect(actual).toEqual(expected)
+    })
 
-  it('Should return marketplace selector output', () => {
-    const actual = structuredSelector.markets
-    const expected = initialState
+    it('Should return marketplace selector output', () => {
+      const actual = structuredSelector.markets
+      const expected = initialState
 
-    expect(actual).toEqual(expected)
+      expect(actual).toEqual(expected)
+    })
   })
 })
