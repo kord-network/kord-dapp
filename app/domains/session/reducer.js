@@ -12,9 +12,14 @@ export const initialState = {
   graph: null,
   isNewUser: false,
   oAuthClaimMessage: null,
+  persistDecryptedKeystore: false,
 }
 
 export default createReducer(fromJS(initialState), {
+  [actions.CLEAR_SESSION]: state => state.merge(fromJS(initialState)),
+
+  [actions.LOCK_ACCOUNT]: (state, action) => state.mergeDeep(action.payload),
+
   [actions.SET_IS_NEW_USER]: (state, action) => state.merge(action.payload),
 
   [actions.SET_OAUTH_CLAIM_MESSAGE]: (state, action) =>
@@ -26,5 +31,6 @@ export default createReducer(fromJS(initialState), {
       encryptedKeystores: {
         [action.payload.account.address]: action.payload.keystore,
       },
+      persistDecryptedKeystore: action.payload.persistDecryptedKeystore,
     }),
 })

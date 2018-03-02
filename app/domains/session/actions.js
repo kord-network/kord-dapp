@@ -1,17 +1,48 @@
 import * as actions from './actionTypes'
 
 /**
- * Start session and set account
+ * Clear session state
  *
- * @param  {Object}  account           		Ethereum account object
- * @param  {String}  account.address   		Public address
- * @param  {String}  account.privateKey		Private key
- * @param  {Object}  keystore          		Encrypted Ethereum keystore object
- * @return {Object}                    		Flux Standard Action
+ * @return {Object} Flux Standard Action
  */
-export const unlockAccount = (account, keystore) => ({
+export const clearSession = () => ({
+  type: actions.CLEAR_SESSION,
+})
+
+/**
+ * Lock account by clearing private key from state
+ *
+ * @return {Object} Flux Standard Action
+ */
+export const lockAccount = () => ({
+  type: actions.LOCK_ACCOUNT,
+  payload: { account: { privateKey: null } },
+})
+
+/**
+ * Signal the start of a new session
+ *
+ * @return {Object} Flux Standard Action
+ */
+export const newSession = () => ({
+  type: actions.NEW_SESSION,
+})
+
+/**
+ * @param  {Object}  account                  Ethereum account object
+ * @param  {String}  account.address          Public address
+ * @param  {String}  account.privateKey       Private key
+ * @param  {Object}  keystore                 Encrypted Ethereum keystore object
+ * @param  {Boolean} persistDecryptedKeystore Flag to persist decrypted keystore
+ * @return {Object}                           Flux Standard Action
+ */
+export const unlockAccount = (
+  account,
+  keystore,
+  persistDecryptedKeystore = false
+) => ({
   type: actions.UNLOCK_ACCOUNT,
-  payload: { account, keystore },
+  payload: { account, keystore, persistDecryptedKeystore },
 })
 
 /**
