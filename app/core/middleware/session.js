@@ -1,6 +1,6 @@
 import { isDomainAction } from 'core/util'
 import { actions as ClaimsActions } from 'domains/claims'
-import { actionTypes as session, name } from 'domains/session'
+import { name, actionTypes as session } from 'domains/session'
 import { actions as MarketplaceActions } from 'domains/marketplace'
 
 const SessionMiddleware = ({ dispatch }) => next => action => {
