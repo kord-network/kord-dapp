@@ -1,0 +1,8 @@
+{
+  "MarketServices": {
+  	"service": {
+  		"graphUriPath": "service",
+  		"endpoint": "/service"
+  	}
+  }
+}

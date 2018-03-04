@@ -31,4 +31,5 @@ const getIsRequesting = createSelector([getAll], state => {
 export default {
   error: getError,
   isRequesting: getIsRequesting,
+  ui: getAll,
 }

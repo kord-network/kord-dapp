@@ -53,15 +53,6 @@ module.exports = {
     }),
   ],
 
-  resolve: {
-    modules: [PATHS.src, 'node_modules'],
-    alias: {
-      core: 'core',
-      domains: 'domains',
-      pages: 'pages',
-    },
-  },
-
   module: {
     rules: [
       {
