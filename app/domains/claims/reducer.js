@@ -22,7 +22,7 @@ export default createReducer(initialState, {
       success: prevState =>
         prevState.mergeIn(
           [action.meta.graph],
-          createClaim([action.payload.createClaim])
+          createClaim([action.payload.createClaim.data])
         ),
     }),
 

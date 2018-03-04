@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { theme } from 'jaak-primitives'
+import { theme, View } from 'jaak-primitives'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -20,9 +20,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme(customTheme)}>
-        <div>
-          {children}
-        </div>
+        <View size={['100%', 'auto']}>{children}</View>
       </ThemeProvider>
     )
   }

@@ -1,3 +1,7 @@
+import * as GRAPH_IDE from './graph-ide'
+
+export { GRAPH_IDE }
+
 export const {
   BASE_NAME,
   CLAIM_SERVICE_HOST,

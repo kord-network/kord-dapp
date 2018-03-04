@@ -86,6 +86,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.flow$/,
+        loader: 'ignore-loader',
+      },
     ],
   },
 }

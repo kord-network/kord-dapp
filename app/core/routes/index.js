@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeRouteConfig, Route } from 'found'
+import { Route, makeRouteConfig } from 'found'
 
 import App from 'core/containers/App'
 import routes from 'core/routes/config'
@@ -9,6 +9,7 @@ export { routes }
 
 export default makeRouteConfig(
   <Route Component={App}>
-    <Route path={routes.home.path} Component={pages.Home} />
+    <Route Component={pages.Home} path={routes.home.path} />
+    <Route Component={pages.GraphIDE} path={routes.graphide.path} />
   </Route>
 )

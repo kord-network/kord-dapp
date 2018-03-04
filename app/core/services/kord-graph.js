@@ -9,7 +9,7 @@ import { KordNetwork } from 'core/services'
  * @return {Object}                    Response data
  */
 export const createGraph = variables => {
-  return KordNetwork.makeRequest(
+  return KordNetwork.makeRawRequest(
     `
       mutation CreateGraph($graph: GraphInput!) {
         createGraph(input: $graph) {
@@ -58,7 +58,7 @@ export const setGraph = variables => {
  * @return {Object}                           Response data
  */
 export const createClaim = variables => {
-  return KordNetwork.makeRequest(
+  return KordNetwork.makeRawRequest(
     `
       mutation CreateClaim($claim: ClaimInput!) {
         createClaim(input: $claim) {
