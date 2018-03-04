@@ -10,5 +10,6 @@ export { routes }
 export default makeRouteConfig(
   <Route Component={App}>
     <Route Component={pages.Home} path={routes.home.path} />
+    <Route Component={pages.GraphIDE} path={routes.graphide.path} />
   </Route>
 )
