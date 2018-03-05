@@ -4,7 +4,7 @@ import { createReducer } from 'redux-immutablejs'
 import * as actions from './actionTypes'
 import * as model from './model'
 
-const createAccount = account => model.accountFactory(account)
+export const createAccount = account => model.accountFactory(account)
 
 export const initialState = {
   account: null,
