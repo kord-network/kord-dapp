@@ -14,8 +14,8 @@ export default createReducer(initialState, {
     handle(state, action, {
       success: prevState =>
         prevState.merge({
-          [action.payload.createGraph.data.id]: createIdentity(
-            action.payload.createGraph.data
+          [action.payload.data.createGraph.id]: createIdentity(
+            action.payload.data.createGraph
           ),
         }),
     }),

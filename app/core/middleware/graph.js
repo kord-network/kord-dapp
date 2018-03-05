@@ -23,7 +23,7 @@ const GraphMiddleware = ({ dispatch, getState }) => next => action => {
       IdentityActions.setGraph(
         MetaIdentity.createSetGraphInput(
           account,
-          action.payload.createGraph.extensions.meta.swarmHash
+          action.payload.extensions.meta.swarmHash
         )
       )
     )
