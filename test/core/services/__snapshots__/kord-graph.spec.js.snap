@@ -2,13 +2,35 @@
 
 exports[`core/services/kord-graph/createClaim Should return successful mutation response 1`] = `
 Object {
-  "createClaim": Object {
-    "claim": "test1",
-    "id": "0x420d65042304f05a86964bb2ba68bb863c34ae5363228370254d83a47235d6d8",
-    "issuer": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
-    "property": "test",
-    "signature": "0xbe8ad51e928b5fcb461543e8efe9666f0a7309f3d0a54a644f089de48e09664e0ee6dc62fcd6e0aed66c5ba954b4066245f600bcc17e49b4e05c2973bdaf571c01",
-    "subject": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+  "data": Object {
+    "createClaim": Object {
+      "claim": "test1",
+      "id": "0x420d65042304f05a86964bb2ba68bb863c34ae5363228370254d83a47235d6d8",
+      "issuer": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+      "property": "test",
+      "signature": "0xbe8ad51e928b5fcb461543e8efe9666f0a7309f3d0a54a644f089de48e09664e0ee6dc62fcd6e0aed66c5ba954b4066245f600bcc17e49b4e05c2973bdaf571c01",
+      "subject": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+    },
+  },
+  "extensions": Object {
+    "meta": Object {
+      "swarmHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    },
+  },
+}
+`;
+
+exports[`core/services/kord-graph/createGraph Should return successful mutation response 1`] = `
+Object {
+  "data": Object {
+    "createGraph": Object {
+      "id": "0x0000000000000000000000000000000000000000",
+    },
+  },
+  "extensions": Object {
+    "meta": Object {
+      "swarmHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    },
   },
 }
 `;
@@ -16,7 +38,7 @@ Object {
 exports[`core/services/kord-graph/setGraph Should return successful mutation response 1`] = `
 Object {
   "setGraph": Object {
-    "id": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+    "id": "0x0000000000000000000000000000000000000000",
   },
 }
 `;
