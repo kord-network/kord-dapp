@@ -6,6 +6,9 @@ import { actionTypes as profile } from 'domains/profile'
 import claim from '~/domains/claims/fixtures/claim.json'
 import { makeAsyncAction, makeMiddlewareMockFunctions } from '~/util'
 
+jest.mock('core/services/kord-claims')
+jest.mock('core/services/kord-network')
+
 describe('core/middleware/claims', () => {
   let invoke, next, store
 
