@@ -9,7 +9,7 @@ import { KEY } from 'redux-pack'
  * @param  {Object} action    Flux Standard Action
  * @return {Object}
  */
-const makeAsyncAction = (lifecycle, { meta = {}, payload, type }) => {
+const makeAsyncAction = (lifecycle, { meta = {}, payload = {}, type }) => {
   return {
     meta: { ...meta, [KEY.LIFECYCLE]: lifecycle },
     payload,
