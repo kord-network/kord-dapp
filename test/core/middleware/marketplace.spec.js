@@ -6,6 +6,8 @@ import { actionTypes } from 'domains/marketplace'
 import { makeAsyncAction, makeMiddlewareMockFunctions } from '~/util'
 import getMarketplacesActionPayload from '~/domains/marketplace/fixtures/get-marketplaces-action-payload.json'
 
+jest.mock('core/services/kord-network')
+
 describe('core/middleware/marketplace', () => {
   let invoke, next, store
 
