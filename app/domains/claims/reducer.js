@@ -5,7 +5,7 @@ import { handle } from 'redux-pack'
 import * as actions from './actionTypes'
 import * as model from './model'
 
-const createClaim = claims =>
+export const createClaim = claims =>
   claims.map(claim => model.claimFactory(claim)).reduce(
     (obj, claim) =>
       Object.assign({}, obj, {
