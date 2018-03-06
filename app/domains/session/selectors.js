@@ -64,9 +64,11 @@ const getPersistDecryptedKeystore = createSelector(getAll, state => {
 const getSessionClaimsGraph = createSelector(
   [getAccountAddress, Claims.claimsWithProfileData],
   (address, claims) => {
-    const sessionClaimsGraph = address && claims && claims[address]
+    if (!address && !claims) {
+      return null
+    }
 
-    return sessionClaimsGraph
+    return claims[address]
   }
 )
 
