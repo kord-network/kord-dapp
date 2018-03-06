@@ -5,7 +5,7 @@ import { handle } from 'redux-pack'
 import * as actions from './actionTypes'
 import * as model from './model'
 
-const createIdentity = identity => model.identityFactory(identity)
+export const createIdentity = identity => model.identityFactory(identity)
 
 export const initialState = Immutable.fromJS({})
 
