@@ -4,6 +4,7 @@ import middleware from 'core/middleware/session'
 import { actionTypes as claims } from 'domains/claims'
 import { actionTypes as marketplace } from 'domains/marketplace'
 import { actionTypes } from 'domains/session'
+import unlockAccountActionPayload from '~/domains/session/fixtures/unlock-account-action-payload.json'
 import { makeAsyncAction, makeMiddlewareMockFunctions } from '~/util'
 
 jest.mock('core/services/kord-network')
@@ -54,11 +55,7 @@ describe('core/middleware/session', () => {
 
     it('Should dispatch claims/READ_CLAIMS action on session/UNLOCK_ACCOUNT action success', () => {
       const action = makeAsyncAction(LIFECYCLE.SUCCESS, {
-        payload: {
-          account: {
-            address: '0xEe078019375fBFEef8f6278754d54Cf415e83329',
-          },
-        },
+        payload: unlockAccountActionPayload,
         type: actionTypes.UNLOCK_ACCOUNT,
       })
 
