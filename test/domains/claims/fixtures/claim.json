@@ -1,0 +1,8 @@
+{
+  "claim": "Jim Test",
+  "graph": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+  "issuer": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+  "property": "profile.name",
+  "signature": "0x53e1fddb00d554079883e64ba3e76647c5be86e088a84be5308c91155bba003901d415ff4ff8371f0ff74bc0b3c14f21e2744bc4c03e0b255deb5adc2d1d4f8c00",
+  "subject": "0xEe078019375fBFEef8f6278754d54Cf415e83329"
+}
