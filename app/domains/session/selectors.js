@@ -25,17 +25,8 @@ const getAccount = createSelector(getAll, state => {
  *
  * @type {String}
  */
-const getAccountAddress = createSelector(getAccount, account => {
-  return account && account.address
-})
-
-/**
- * Check if active session account
- *
- * @type {Boolean}
- */
-const getIsLoggedIn = createSelector(getAccount, account => {
-  return Boolean(account)
+const getAccountAddress = createSelector(getAll, state => {
+  return state.getIn(['account', 'address'])
 })
 
 /**
@@ -73,16 +64,17 @@ const getPersistDecryptedKeystore = createSelector(getAll, state => {
 const getSessionClaimsGraph = createSelector(
   [getAccountAddress, Claims.claimsWithProfileData],
   (address, claims) => {
-    const sessionClaimsGraph = claims[address]
+    if (!address && !claims) {
+      return null
+    }
 
-    return sessionClaimsGraph
+    return claims[address]
   }
 )
 
 export default {
   account: getAccount,
   accountAddress: getAccountAddress,
-  isLoggedIn: getIsLoggedIn,
   isNewUser: getIsNewUser,
   oAuthClaimMessage: getOAuthClaimMessage,
   persistDecryptedKeystore: getPersistDecryptedKeystore,

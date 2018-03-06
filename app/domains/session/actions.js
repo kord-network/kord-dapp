@@ -15,8 +15,8 @@ export const clearSession = () => ({
  * @return {Object} Flux Standard Action
  */
 export const lockAccount = () => ({
-  type: actions.LOCK_ACCOUNT,
   payload: { account: { privateKey: null } },
+  type: actions.LOCK_ACCOUNT,
 })
 
 /**
@@ -26,6 +26,28 @@ export const lockAccount = () => ({
  */
 export const newSession = () => ({
   type: actions.NEW_SESSION,
+})
+
+/**
+ * Set the newly created user flag
+ *
+ * @param  {Boolean} isNewUser Newly created user flag
+ * @return {Object}            Flux Standard Action
+ */
+export const setIsNewUser = isNewUser => ({
+  payload: { isNewUser },
+  type: actions.SET_IS_NEW_USER,
+})
+
+/**
+ * Store a claim message sent to an OAuth provider for retrieval after callback
+ *
+ * @param  {String} oAuthClaimMessage Raw claim message
+ * @return {Object}                   Flux Standard Action
+ */
+export const setOAuthClaimMessage = oAuthClaimMessage => ({
+  payload: { oAuthClaimMessage },
+  type: actions.SET_OAUTH_CLAIM_MESSAGE,
 })
 
 /**
@@ -41,28 +63,6 @@ export const unlockAccount = (
   keystore,
   persistDecryptedKeystore = false
 ) => ({
-  type: actions.UNLOCK_ACCOUNT,
   payload: { account, keystore, persistDecryptedKeystore },
-})
-
-/**
- * Set the newly created user flag
- *
- * @param  {Boolean} isNewUser Newly created user flag
- * @return {Object}            Flux Standard Action
- */
-export const setIsNewUser = isNewUser => ({
-  type: actions.SET_IS_NEW_USER,
-  payload: { isNewUser },
-})
-
-/**
- * Store a claim message sent to an OAuth provider for retrieval after callback
- *
- * @param  {String} oAuthClaimMessage Raw claim message
- * @return {Object}                   Flux Standard Action
- */
-export const setOAuthClaimMessage = oAuthClaimMessage => ({
-  type: actions.SET_OAUTH_CLAIM_MESSAGE,
-  payload: { oAuthClaimMessage },
+  type: actions.UNLOCK_ACCOUNT,
 })
