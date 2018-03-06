@@ -1,0 +1,14 @@
+{
+  "data": {
+    "graph": {
+      "id": "0xEe078019375fBFEef8f6278754d54Cf415e83329",
+      "claim": [
+        {
+          "id": "0x500bd92e1ae4cab1a2fdd0f370a056b872fa55cc0645317e169931b4f886e149",
+          "claim": "Jim Test",
+          "property": "profile.name"
+        }
+      ]
+    }
+  }
+}
