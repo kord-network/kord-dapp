@@ -1,7 +1,6 @@
-# KORD Ðapp
-
-> Decentralised application for managing KORD agents' representation in the KORD
-  Network
+<p align='center'>
+  <img src='https://user-images.githubusercontent.com/1913316/37030105-9b8e2114-2131-11e8-8b07-fd7839b80680.png' width='200'/>
+</p>
 
 ## Setup
 ```
@@ -13,12 +12,13 @@ npm install
 npm start
 ```
 
-### META Node
-Instructions about how to run a META Node for development can be found in the
-[`go-meta`](https://github.com/meta-network/go-meta/tree/meta-v2/dev)
+### KORD Node
+Instructions about how to run a KORD Node for development can be found in the
+[`go-kord`](https://github.com/meta-network/go-meta/tree/meta-v2/dev)
 repository.
 
-### META Identity Claims Services
-Instructions about how to run example services for development can be found in
-the [`meta-identity-claims-service`](https://github.com/meta-network/meta-identity-claims-service)
+### KORD Guardians
+Instructions about how to run example micro-services for development can be
+found in the
+[`kord-guardian-examples`](https://github.com/kord-network/kord-guardian-examples)
 repository.

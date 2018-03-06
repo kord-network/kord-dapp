@@ -1,7 +1,7 @@
 {
   "name": "kord-dapp",
   "version": "1.0.0",
-  "description": "Decentralised application for managing and viewing KORD agents' representation in the KORD network.",
+  "description": "Decentralised application for interacting with the KORD Network",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meta-network/kord-dapp.git"
+    "url": "git+https://github.com/kord-network/kord-dapp.git"
   },
   "keywords": [
     "kord",
@@ -43,9 +43,9 @@
   "author": "JAAK Music Ltd. (https://jaak.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/meta-network/kord-dapp/issues"
+    "url": "https://github.com/kord-network/kord-dapp/issues"
   },
-  "homepage": "https://github.com/meta-network/kord-dapp#readme",
+  "homepage": "https://github.com/kord-network/kord-dapp#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
@@ -85,7 +85,7 @@
     "idb-keyval": "^2.3.0",
     "immutable": "^3.8.2",
     "jaak-primitives": "^1.0.0-beta",
-    "meta.js": "^1.0.0-beta.2",
+    "kord.js": "^1.0.0-alpha",
     "polished": "^1.9.2",
     "prop-types": "^15.6.0",
     "query-string": "^5.1.0",
