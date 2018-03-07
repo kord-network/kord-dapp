@@ -1,4 +1,4 @@
-import { identity } from 'meta.js'
+import { identity } from 'kord.js'
 
 import { KordGraph } from 'core/services'
 import * as actions from './actionTypes'
@@ -10,10 +10,10 @@ import * as actions from './actionTypes'
  * @return {Object} 				Flux Standard Action
  */
 export const createIdentity = address => ({
-  type: actions.CREATE_IDENTITY,
   promise: KordGraph.createGraph({
     graph: identity.createGraphObject(address),
   }),
+  type: actions.CREATE_IDENTITY,
 })
 
 /**
@@ -26,6 +26,6 @@ export const createIdentity = address => ({
  * @return {Object}                 Flux Standard Action
  */
 export const setGraph = graph => ({
-  type: actions.SET_GRAPH,
   promise: KordGraph.setGraph({ graph }),
+  type: actions.SET_GRAPH,
 })

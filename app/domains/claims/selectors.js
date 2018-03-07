@@ -1,4 +1,4 @@
-import { identityClaims } from 'meta.js'
+import { identityClaims } from 'kord.js'
 import { createSelector } from 'reselect'
 
 import { selectors as Profile } from 'domains/profile'

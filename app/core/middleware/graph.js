@@ -1,4 +1,4 @@
-import { identity as MetaIdentity } from 'meta.js'
+import { identity as MetaIdentity } from 'kord.js'
 
 import { hasAsyncActionFailed, hasAsyncActionSucceeded } from 'core/util'
 import { actionTypes as claims } from 'domains/claims'

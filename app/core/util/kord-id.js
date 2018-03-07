@@ -1,4 +1,4 @@
-import { identityClaims } from 'meta.js'
+import { identityClaims } from 'kord.js'
 
 /**
  * Filter all profile claims from a set of KORD Identity Claim objects
