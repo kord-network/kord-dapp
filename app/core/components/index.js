@@ -1,3 +1,5 @@
 import AccountForm from './AccountForm'
+import Link from './Link'
+import Logo from './Logo'
 
-export { AccountForm }
+export { AccountForm, Link, Logo }
