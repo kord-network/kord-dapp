@@ -1,3 +1,4 @@
 import Error from './Error'
+import Loader from './Loader'
 
-export { Error }
+export { Error, Loader }
