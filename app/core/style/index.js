@@ -1,3 +1,4 @@
+import * as animation from './animation'
 import customTheme from './theme'
 
-export { customTheme }
+export { animation, customTheme }
